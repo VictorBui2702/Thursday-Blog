@@ -2,12 +2,18 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Flask Blog</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My Site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 </head>
-
+<!-- 
 <body>
     <h1>Hello World</h1>
     <a href="{{ url_for('create') }}">Add post</a>
@@ -33,6 +39,65 @@
             {% endfor %}
         </tbody>
     </table>
+    <a href="{{url_for('logout')}}"><button>Logout</button></a>
+</body> -->
+
+<body>
+<h1>Hello World</h1>
+<a href="{{ url_for('create') }}">Add post</a>
+<a href="{{ url_for('login') }}">Login matherfuqueur</a>
+    <div class="container">
+        {% for post in posts %}
+            <div class="col-9">
+                <div class="row mb-5 border">
+                    <div class="ui segment ">
+                        <h3 class="border-bottom greenHeader">
+                            {{ post.title }}
+                        </h3>
+                        <h5>{{ post.author_name }}</h5>
+                        <span class="time-text font-weight-bold">
+                            {{ post.created_at }}
+                        </span>
+                        <div class="ui raised segment mt-3 container">{{ post.body }} </div>
+                    </div>
+                </div>
+                
+            </div>
+        
+        {% endfor %}
+    </div>
+
+<a href="{{url_for('logout')}}"><button>Logout</button></a>
+
+
 </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </html>

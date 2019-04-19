@@ -18,9 +18,10 @@ login_manager.login_view = "login"
 
 class Posts(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(140),unique=True, nullable=False)
+    title = db.Column(db.String(140), nullable=False)
     body = db.Column(db.Text, nullable=False)
     author_name = db.Column(db.String(80))
+    
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, server_default=db.func.now(), server_onupdate=db.func.now())
 
@@ -42,7 +43,7 @@ class User(UserMixin, db.Model):
       return check_password_hash(self.password_hash, password)
 
 db.create_all()
-
+@login_required
 @app.route("/")
 def hello():
     return render_template('main.html', posts = Posts.query.all())
@@ -93,7 +94,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return render_template('main.html', posts = Posts.query.all())
+    return render_template('login.html', posts = Posts.query.all())
 
 @login_manager.user_loader
 def load_user(user_id):
