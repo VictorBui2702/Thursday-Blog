@@ -42,8 +42,6 @@ class User(UserMixin, db.Model):
   email = db.Column(db.String(120), index=True, unique=True)
   password_hash = db.Column(db.String(128), nullable=False)
 
-
-  
   def set_password(self, password):
       self.password_hash = generate_password_hash(password)
 
@@ -60,7 +58,22 @@ def hello():
 # def post():
 #     return "These are the posts"
 
-@app.route('/create', methods=['POST', 'GET'])
+@app.route('/update', methods=['POST', 'GET'])
+@login_required
+def update():
+    post_id = request.args.get('id')
+    post = Posts.query.get(post_id)
+    if request.method == 'POST':   
+        # get form data
+        post.title = request.form['title']
+        post.body = request.form['body']
+        db.session.commit()
+
+        return redirect(url_for('update', id=post_id))
+    else:
+        return render_template("update_form.html", post = post)
+
+@app.route('/create', methods=['GET', 'POST'])
 @login_required
 def create():
     if request.method == 'POST':
