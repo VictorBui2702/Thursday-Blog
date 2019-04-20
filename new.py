@@ -31,10 +31,10 @@ class Posts(db.Model):
     contributors = db.relationship('User', secondary=contributions, lazy='subquery',
         backref = db.backref('posts', lazy=True))
 
-    def __init__(self, title, body, author_name):
+    def __init__(self, title, body,user_id):
         self.title = title
         self.body = body
-        self.author_name = author_name
+        self.user_id= user_id
 
 class User(UserMixin, db.Model):
   id = db.Column(db.Integer, primary_key=True)
@@ -69,7 +69,7 @@ def create():
         else:
             post = Posts(request.form['title'],
                         request.form['body'],
-                        current_user.username)
+                        current_user.id)
             db.session.add(post)
             db.session.commit()
             flash('Post successfully added')
