@@ -71,11 +71,143 @@ box-sizing: border-box;
     text-decoration: none;
 }
 .site-description {
-    width: 750px;
+    width:1000px;
     margin: -5px 0 0;
     font-size: 10px;
     letter-spacing: 0.26rem;
     color: #9d9d9d;
     text-transform: uppercase;
     text-align: right;
+}
+.section{
+    list-style: none;
+    
+}
+.section li a{
+color:black!important;
+}
+
+.single-page {
+    padding-top: 165px;
+    padding-bottom: 100px;
+}
+
+.single-page .content-wrap {
+    margin-top: 110px;
+    text-align: center;
+    color: #afafaf;
+}
+
+.single-page .content-wrap .posted-date {
+    font-size: 12px;
+    letter-spacing: 0.08rem;
+    text-transform: uppercase;
+}
+
+.single-page .content-wrap .entry-title {
+    margin-top: 12px;
+    font-size: 30px;
+    color: #2f2f2f;
+}
+
+.single-page .content-wrap .tags-links {
+    margin-top: 35px;
+}
+
+.single-page .content-wrap .tags-links a {
+    margin-right: 15px;
+    font-size: 16px;
+    color: #afafaf;
+}
+
+.single-page .content-wrap .featured-image {
+    margin-top: 42px;
+}
+
+.single-page .content-wrap .featured-image img {
+    max-width: 100%;
+}
+
+.single-page .content-wrap .entry-content {
+    margin-top: 36px;
+}
+
+.single-page .content-wrap .entry-content p {
+    font-size: 14px;
+    line-height: 2rem;
+    text-align: left;
+}
+
+.single-page .blockquote-text {
+    padding-left: 114px;
+    margin-top: 84px;
+    font-size: 18px;
+    line-height: 2.2rem;
+    color: #2f2f2f;
+    text-align: left;
+    background: url("images/cocktaile.png") no-repeat left center;
+}
+
+.single-page .blockquote-text p::first-letter {
+    font-size: 36px;
+}
+
+.single-page .content-wrap .entry-footer {
+    margin-top: 50px;
+}
+
+.post-share,
+.comments-count {
+    width: 100%;
+}
+
+.post-share {
+    padding: 0;
+    margin: 30px 0 0;
+    list-style: none;
+    color: #afafaf;
+}
+
+.post-share label {
+    margin: 0 12px 0 0;
+    font-size: 18px;
+}
+
+.post-share li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    margin: 0 12px;
+    font-size: 15px;
+}
+
+.post-share li a {
+    color: #afafaf;
+    transition: all 0.35s;
+}
+
+.post-share li a:hover {
+    color: #2f2f2f;
+}
+
+.content-wrap a.read-more {
+    display: block;
+    width: 200px;
+    padding: 20px 0;
+    margin-top: 30px;
+    font-size: 14px;
+    color: #fff;
+    line-height: 1;
+    background: #2f2f2f;
+}
+
+.comments-count {
+    font-size: 16px;
+    text-align: left;
+}
+
+.comments-count a {
+    color: #afafaf;
 }
