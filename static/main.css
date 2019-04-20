@@ -24,7 +24,6 @@
   color: rgb(71, 206, 206) !important;
 }
 .ui.segment {
-  background-color: black;
   box-shadow: 0 0px 0px 0 lightpink, 0 0px 20px 0 lightpink !important;
   border-radius: 10px;
   width: 100% !important;

@@ -16,14 +16,20 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
 
+contributions = db.Table('contributions',
+    db.Column('post_id', db.Integer, db.ForeignKey('posts.id'), primary_key=True),
+    db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True)
+)
+
 class Posts(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(140), nullable=False)
     body = db.Column(db.Text, nullable=False)
-    author_name = db.Column(db.String(80))
-    
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, server_default=db.func.now(), server_onupdate=db.func.now())
+    contributors = db.relationship('User', secondary=contributions, lazy='subquery',
+        backref = db.backref('posts', lazy=True))
 
     def __init__(self, title, body, author_name):
         self.title = title
@@ -35,6 +41,8 @@ class User(UserMixin, db.Model):
   username = db.Column(db.String(64), index=True, unique=True)
   email = db.Column(db.String(120), index=True, unique=True)
   password_hash = db.Column(db.String(128), nullable=False)
+
+
   
   def set_password(self, password):
       self.password_hash = generate_password_hash(password)
