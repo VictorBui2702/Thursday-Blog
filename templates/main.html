@@ -57,12 +57,14 @@
 </body> -->
 
   <body>
-    <nav class="nav justify-content-between mt-2">
+    
+    <nav class="container nav align-self-center justify-content-between mt-2">
       <div class="header_bar_text">
-        HEllO WORLD, ajaf fhafhf fhahf 
+        <li class="nav-item text-dark font-weight-bold">Keep moving forward. Work hard Play harder</li>
       </div>
       <div>
-        <ul class="header_bar_social d-flex flex-row align-items-center">
+        <ul class="header_bar_social d-flex flex-row align-self-center">
+          
           <li class="nav-item">
             <a class="nav-link" href="#"><i class="fab fa-pinterest"></i></a>
           </li>
@@ -75,8 +77,6 @@
           <li class="nav-item">
             <a class="nav-link" href="#"><i class="fab fa-linkedin"></i></a>
           </li>
-         
-          <li class="nav-item">{{ username1 }}</li>
           
           <form class="form-inline">
             <input
@@ -107,9 +107,10 @@
       <div class="col-12">
         <div class="site-branding flex flex-column align-items-center">
           <h1 class="site-title text-center">
-            THURSDAY'S</h1>
+            THURSDAY'S
           </h1>
-          <p class="site-description">Personal Blog</p>
+
+          <p class="site-description font-weight-bold">Personal Blog</p>
         </div>
 
         <ul
@@ -138,53 +139,48 @@
       <div class="row">
         <img
           class="feature-photo mb-2"
-          src="https://www.setaswall.com/wp-content/uploads/2017/12/Black-Purple-Wallpaper-19-960x854.jpg"
+          src="http://wpnature.com/wp-content/uploads/2016/11/forest-northern-lights-stars-purple-lake-blue-night-trees-hd-wallpaper-free-download.jpg"
         />
       </div>
-      <form class="form-inline justify-content-end">
-        <a
-          href="{{ url_for('create') }}"
-          class="btn btn-outline-dark my-2 my-sm-0"
-          >Add post</a
-        >
-      </form>
+     
     </div>
 
-    <div class="container single-page">
+    <div class="container">
       <div class="row">
-        <div class="col-3">
-          
-            <div id="userInfo">
-              <div class="card" style="width: 100%">
-                <div id="userAva"></div>
-                <div class="card-body">
-                  <h5 id="userName" class="card-title h4">USER NAME</h5>
-                  <p id="quote" class="card-text font-italic"></p>
-                  <p id="totalTweet" class="h5">Tweets</p>
-                </div>
+        <div class="col-xl-3 col-lg-3 order-xl-first order-lg-first order-md-last order-sm-last order-last ">
+          <div id="userInfo">
+            <div class="card" style="width: 100%">
+              <div class="userAva">
+                <img
+                  class="avatar"
+                  src="https://images.unsplash.com/photo-1539616059737-57c4c3c5b949?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
+                />
+              </div>
+              <div class="card-body">
+                <h5 id="userName" class="card-title h4">{{ username1 }}</h5>
+                <p id="quote" class="card-text font-italic"></p>
+                <form class="form-inline justify-content-end">
+                  <a href="{{ url_for('create') }}" class="btn btn-outline-dark my-2 my-sm-0">Add post</a>
+                </form>
               </div>
             </div>
-          
+          </div>
         </div>
-        <div class="col-9">
+        <div class="col-xl-9 col-lg-9">
           {% for post in posts %}
           <div class="row mb-5 border">
             <div class="card" style="width: 100%">
-              <div class="posted-date">{{ post.created_at }}</div>
               <div class="card-title entry-title">
-                <h3>{{ post.title }}</h3></div>
-                    <div class="tags-links">{{ post.user_id }}</div>
-               
-                <a href="{{ url_for('update', id=post.id) }}">Edit</a>
-                <a href="{{ url_for('delete', id=post.id) }}" > Delete</a>
-                
+                <h3>{{ post.title }}</h3>
+              </div>
+              <div class="posted-date">{{ post.created_at }}</div>
 
-            
               <div class="card-body entry-content">
                 <p class="card-text">{{ post.body }}</p>
-                <div class="row justify-content-around">
-                  <div class="col-8 justify-content-between align-items-center">
-                    <span><h3>Share</h3></span>
+                <div class="row justify-content-around mt-5">
+                  
+                    <div class="col-6 justify-content-between align-items-center">
+                      <span>Share</span>
                     <a href="#"
                       ><i class="fab social_icon fa-pinterest fa-2x"></i
                     ></a>
@@ -197,21 +193,31 @@
                     <a href="#"
                       ><i class="fab social_icon fa-linkedin fa-2x"></i
                     ></a>
-                  </div>
-                  <div class="col-4 flex-end">
-                    <h4>hhh</h4>
+                    </div>
+                  
+                  <div class="col-4 text-right">
+                    <a
+                      class="social_icon"
+                      href="{{ url_for('update', id=post.id) }}"
+                      ><i class="far fa-edit fa-2x"></i
+                    ></a>
+                    <a
+                      class="social_icon"
+                      href="{{ url_for('delete', id=post.id) }}"
+                    >
+                      <i class="far fa-trash-alt fa-2x"></i
+                    ></a>
                   </div>
                 </div>
               </div>
               <div>
-                <h5>Comment</h5>
-                <textarea class="textarea"></textarea>
+                <h5 class="text-right mr-3 mt-3">Comment</h5>
+                <textarea class="comment" style="width:100%; height:150px;"></textarea>
               </div>
             </div>
           </div>
           {% endfor %}
         </div>
-
       </div>
     </div>
   </body>

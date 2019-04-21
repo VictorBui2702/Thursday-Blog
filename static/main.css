@@ -16,19 +16,40 @@ input {
 
 }
 
-
-textarea {
+.card{
+    border: none;
+    border-radius: 5px;
+    min-height: 300px;
+    background-color: rgba(255, 255, 255, 0.219) !important;
+}
+.postfield {
     border: none;
     border-radius: 5px;
     min-height: 300px;
     background: rgba(255, 255, 255, 0.219);
 }
-
+.comment{
+    border: none;
+    border-radius: 5px;
+    min-height: 100px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.219);
+}
 button {
     border: none;
     border-radius: 10px !important;
     background: rgba(255, 255, 255, 0.877);
 
+}
+
+.card-body{
+    border: none !important;
+    border-radius: 5px !important;
+    background-color: rgba(255, 255, 255, 0.219) !important;
+}
+.avatar{
+    width: 100%;
+    height: 250px;
 }
 
 .social_icon:hover {
@@ -70,7 +91,7 @@ box-sizing: border-box;
 .header_bar_text,
 .header_bar_email {
     font-size: 12px;
-    color: #afafaf;
+    color: #070000;
     text-transform: uppercase;
     letter-spacing: 0.08rem;
 }
@@ -97,9 +118,9 @@ box-sizing: border-box;
 .site-description {
     width:1000px;
     margin: -5px 0 0;
-    font-size: 10px;
+    font-size: 15px;
     letter-spacing: 0.26rem;
-    color: #9d9d9d;
+    color: #b39090;
     text-transform: uppercase;
     text-align: right;
 }

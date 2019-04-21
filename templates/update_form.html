@@ -18,7 +18,7 @@
                 </div>
     
                 <div class="container m-1 row">
-                    <textarea class="col-12" name="body" placeholder="**body"> {{ post.body }} </textarea><br>
+                    <textarea class=" postfield col-12" name="body" placeholder="**body"> {{ post.body }} </textarea><br>
                 </div>
             </div>
     
@@ -27,7 +27,7 @@
                 <label>Yes, I read the mathafaqueur rules.</label>
             </div>
             <div class="text-right">
-                <button href="{{ url_for('hello') }}" class="btn btn-outline-dark my-2 my-sm-0 px-5"> Publish </button>
+                <a href="{{ url_for('hello') }}" class="btn btn-outline-dark my-2 my-sm-0 px-5"> Publish </a>
                 <button type="submit" class="btn btn-outline-dark my-2 my-sm-0 px-5"> Save changes</button>
             </div>
     
