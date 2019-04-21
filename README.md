@@ -23,13 +23,13 @@ This code was reviewed by @username and @otherusername.
 ## User Stories:
 
 - [x] The blog should have a nav bar, which has the blog's name, social media icons, log-in button and log-out button.  
-- [x] The blog should have a home page and a log-in page.
+- [x] The blog should have a home page, a add-post page and a log-in page.
 - [x] The blog should show the log-in page first, before the user logs in. 
 - [x] After the user logs in, they will be directed to the home page, which has a list of articles done by the user.
-- [x] User should be able to log in.
+- [x] On the home page, user should be able to click on "Add post" button, which will direct user to the add-post page.
+- [x] User can write and post their article to the blog. 
+- [x] User can can edit or delete their artiacle from the blog. 
 - [x] User should be able to log out. 
-- [x] User can write and post their article to the blog after logging in. 
-- [x] User can can edit or delete their artiacle from the blog after logging in. 
 - [x] The blog should be user-friendly and have some styles, in terms of color and structure. 
 
 
