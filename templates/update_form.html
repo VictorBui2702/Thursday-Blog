@@ -1,7 +1,8 @@
-<html>
+{% extends "layout.html" %}
+{% block content %}
 
-<body>
-    <h3>NEW POST</h3>
+<div class="container" style="min-height: 700px">
+        <h3>UPDATE POST</h3>
     <hr />
 
     {%- for category, message in get_flashed_messages(with_categories = true) %}
@@ -12,20 +13,25 @@
 
     <form action="{{ request.url }}" method="post">
         <div>
-            <small>** Can't leave blank</small> <br>
-            <input name="title" type="Text" placeholder="**Title" value="{{post.title}}">
-            <small>(Max. 140 characters)</small> <br>
-            <textarea name="body" placeholder="**body">{{ post.body }}</textarea><br>
-        </div>
-        <div class="">
-            <label>Date</label>
-        </div>
-        <div class="form-check">
-            <input type="checkbox">
-            <label>Yes, I read the mathafaqueur rules.</label>
-        </div>
-        <button type="submit" class="">Submit</button>
+                <div class=" container m-1 row">
+                    <input class="col-12" name="title" type="Text" placeholder="**Title (max 140 characters)" value="{{post.title}}">
+                </div>
+    
+                <div class="container m-1 row">
+                    <textarea class="col-12" name="body" placeholder="**body"> {{ post.body }} </textarea><br>
+                </div>
+            </div>
+    
+            <div class="form-check">
+                <input type="checkbox">
+                <label>Yes, I read the mathafaqueur rules.</label>
+            </div>
+            <div class="text-right">
+                <button href="{{ url_for('hello') }}" class="btn btn-outline-dark my-2 my-sm-0 px-5"> Publish </button>
+                <button type="submit" class="btn btn-outline-dark my-2 my-sm-0 px-5"> Save changes</button>
+            </div>
+    
     </form>
-</body>
+</div>
 
-</html>
+{% endblock %}
