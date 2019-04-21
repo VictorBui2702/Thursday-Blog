@@ -2,6 +2,7 @@ from flask import Flask, render_template, flash, redirect, url_for,request
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, LoginManager,login_user,logout_user, current_user, login_required
 from flask import request
+from flask import session
 from werkzeug.security import generate_password_hash, check_password_hash
 # Model - View - Controller
 
@@ -49,10 +50,16 @@ class User(UserMixin, db.Model):
       return check_password_hash(self.password_hash, password)
 
 db.create_all()
-@login_required
+
 @app.route("/")
+@login_required
 def hello():
-    return render_template('main.html', posts = Posts.query.all())
+    # user_id = request.args.get('id')
+    # post = Posts.query.get(post_id)
+    username1  = session.get('username')
+    print("111")
+    print(username1)
+    return render_template('main.html',username1=username1, posts = Posts.query.all())
 
 # @app.route("/posts")
 # def post():
@@ -63,6 +70,8 @@ def hello():
 def update():
     post_id = request.args.get('id')
     post = Posts.query.get(post_id)
+    print("111")
+    print(post)
     if request.method == 'POST':   
         # get form data
         post.title = request.form['title']
@@ -72,6 +81,21 @@ def update():
         return redirect(url_for('update', id=post_id))
     else:
         return render_template("update_form.html", post = post)
+
+@app.route('/delete', methods=['POST','GET'])
+@login_required
+def delete():
+    # if not session.get('logged_in'):
+    #      abort(401)
+    post_id = request.args.get('id')
+    post = Posts.query.get(post_id)
+    print(post_id)
+    print("111")
+    print(post)
+    db.session.delete(post)
+    db.session.commit()
+    flash('Entry deleted')
+    return redirect (url_for("hello"))
 
 @app.route('/create', methods=['GET', 'POST'])
 @login_required
@@ -105,6 +129,7 @@ def login():
         if user is not None and user.check_password(password):
             flash("Welcome Back")
             login_user(user)
+            session['username'] = user.username #user here being the user object you have queried
             return redirect(url_for("create"))
         else:
             flash("Wrong Email/Password","danger")
@@ -115,6 +140,7 @@ def login():
 @login_required
 def logout():
     logout_user()
+    del session['username']
     return render_template('login.html', posts = Posts.query.all())
 
 @login_manager.user_loader

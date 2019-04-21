@@ -59,7 +59,7 @@
   <body>
     <nav class="nav justify-content-between mt-2">
       <div class="header_bar_text">
-        HEllO WORLD, ajaf fhafhf fhahf
+        HEllO WORLD, ajaf fhafhf fhahf 
       </div>
       <div>
         <ul class="header_bar_social d-flex flex-row align-items-center">
@@ -75,9 +75,9 @@
           <li class="nav-item">
             <a class="nav-link" href="#"><i class="fab fa-linkedin"></i></a>
           </li>
-          {% for user in user %}
-          <li class="nav-item">{{ user.username }}</li>
-          {% endfor %}
+         
+          <li class="nav-item">{{ username1 }}</li>
+          
           <form class="form-inline">
             <input
               class="form-control mr-sm-2"
@@ -151,8 +151,8 @@
     </div>
 
     <div class="container single-page">
-      <div clas="row">
-        <div class="col">
+      <div class="row">
+        <div class="col-3">
           
             <div id="userInfo">
               <div class="card" style="width: 100%">
@@ -166,7 +166,7 @@
             </div>
           
         </div>
-        <div class="col">
+        <div class="col-9">
           {% for post in posts %}
           <div class="row mb-5 border">
             <div class="card" style="width: 100%">
@@ -176,6 +176,9 @@
                     <div class="tags-links">{{ post.user_id }}</div>
                
                 <a href="{{ url_for('update', id=post.id) }}">Edit</a>
+                <a href="{{ url_for('delete', id=post.id) }}" > Delete</a>
+                
+
             
               <div class="card-body entry-content">
                 <p class="card-text">{{ post.body }}</p>
@@ -208,90 +211,6 @@
           </div>
           {% endfor %}
         </div>
-
-<div class="content-wrap">
-  <header class="entry-header">
-    <div class="posted-date">
-      January 30, 2018
-    </div><!-- .posted-date -->
-
-    <h2 class="entry-title">Why I love Winter: A short story</h2>
-
-    <div class="tags-links">
-      <a href="#">#winter</a>
-      <a href="#">#love</a>
-      <a href="#">#snow</a>
-      <a href="#">#january</a>
-    </div><!-- .tags-links -->
-  </header><!-- .entry-header -->
-
-  <figure class="featured-image">
-    <img src="images/1.jpg" alt="">
-  </figure><!-- .featured-image -->
-
-  <div class="entry-content">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla placerat,
-      tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque. Fusce sagittis suscipit sem a consequat.
-      Proin nec interdum sem. Quisque in porttitor magna, a imperdiet est. </p>
-  </div><!-- .entry-content -->
-
-  <footer
-    class="entry-footer flex flex-column flex-lg-row justify-content-between align-content-start align-lg-items-center">
-    <ul class="post-share flex align-items-center order-3 order-lg-1">
-      <label>Share</label>
-      <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-      <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-      <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-    </ul><!-- .post-share -->
-
-    <a class="read-more order-2" href="#">Read more</a>
-
-    <div class="comments-count order-1 order-lg-3">
-      <a href="#">2 Comments</a>
-    </div><!-- .comments-count -->
-  </footer><!-- .entry-footer -->
-</div><!-- .content-wrap -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
       </div>
     </div>
