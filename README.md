@@ -22,26 +22,15 @@ This code was reviewed by @username and @otherusername.
 
 ## User Stories:
 
-- [x] The user can enter a repository in a search bar, click "search", and see the associated issues. The repository should be of the format owner/repo-name, e.g. facebook/react.
-- [ ] If the repository does not exist, the user should see a proper error message.
-The user should be able to see the following information for each issue:
-
-- [x] Issue Title
-⋅⋅* Number of the issue
-⋅⋅* Owner of the Issue
-⋅⋅* Owner Avatar
-⋅⋅* How long ago the issue was created in a human-friendly format (e.g. 2 days ago)
-⋅⋅* Body of the Issue
-⋅⋅* Label - note the color as returned by the API.
-⋅⋅* State of Issue (Open/Closed).
-- [x] The user should be able to see multiple pages of results, by clicking a pagination control.
-
-
-
-- [x] The user should be able to see the body of the issue rendered in markdown.
-- [x] The user should be able to create a new issue via a modal for the repository, by clicking on a "new issue" button. Clicking on this button will pop open a modal that asks for the requisite fields.
-- [ ] If there is an error creating the issue (for example, the user not supplying all required parameters), there should be a nice error message to the user.
-
+- [x] The blog should have a nav bar, which has the blog's name, social media icons, log-in button and log-out button.  
+- [x] The blog should have a home page and a log-in page.
+- [x] The blog should show the log-in page first, before the user logs in. 
+- [x] After the user logs in, they will be directed to the home page, which has a list of articles done by the user.
+- [x] User should be able to log in.
+- [x] User should be able to log out. 
+- [x] User can write and post their article to the blog after logging in. 
+- [x] User can can edit or delete their artiacle from the blog after logging in. 
+- [x] The blog should be user-friendly and have some styles, in terms of color and structure. 
 
 
 ## Time Spent and Lessons Learned
