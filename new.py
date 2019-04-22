@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, LoginManager,login_user,logout_user, current_user, login_required
 from flask import request
 from flask import session
+from sqlalchemy import desc
 from werkzeug.security import generate_password_hash, check_password_hash
 # Model - View - Controller
 
@@ -59,7 +60,9 @@ def hello():
     username1  = session.get('username')
     print("111")
     print(username1)
-    return render_template('main.html',username1=username1, posts = Posts.query.all())
+    return render_template('main.html',username1=username1, posts = Posts.query.order_by(desc(Posts.created_at)).all())
+    # entities = MyEntity.query.order_by(desc(MyEntity.time)).limit(3).all()
+
 
 # @app.route("/posts")
 # def post():
@@ -111,13 +114,25 @@ def create():
             db.session.commit()
             flash('Post successfully added')
             return redirect(url_for('hello'))
-
-        # access the data using request.form['field_name']
-        # save it to the database
-        # return a redirect to /posts
-    # the code below is executed if the request method
-    # was GET or the credentials were invalid
     return render_template('create_form.html')
+
+
+@app.route('/signup', methods=['GET', 'POST'])
+
+def signup():
+    if request.method == 'POST':
+        if not request.form['email'] or not request.form['username'] or not request.form['password']:
+            flash('Please enter all the required fields')
+        else:
+            signup = User(request.form['username'],
+                request.form['email'],
+                        request.form['password'])
+            db.session.add(signup)
+            db.session.commit()
+            flash('Post successfully added')
+            return redirect(url_for('hello'))
+    return render_template('signup_form.html')
+
 
 
 @app.route('/login',methods=['POST', 'GET'])
@@ -130,7 +145,7 @@ def login():
             flash("Welcome Back")
             login_user(user)
             session['username'] = user.username #user here being the user object you have queried
-            return redirect(url_for("create"))
+            return redirect(url_for("hello"))
         else:
             flash("Wrong Email/Password","danger")
             return redirect(url_for("login"))
