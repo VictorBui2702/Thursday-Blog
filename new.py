@@ -57,7 +57,7 @@ class User(UserMixin, db.Model):
 db.create_all()
 
 @app.route("/")
-@login_required
+# @login_required
 def hello():
     # user_id = request.args.get('id')
     # post = Posts.query.get(post_id)
