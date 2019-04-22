@@ -23,7 +23,7 @@ This code was reviewed by @username and @otherusername.
 ## User Stories:
 
 - [x] The blog should have a nav bar, which has the blog's name, social media icons, log-in button and log-out button.  
-- [x] The blog should have a home page, a add-post page and a log-in page.
+- [x] The blog should have a home page, a add-post page, a log-in page and a sign-up page.
 - [x] The blog should show the log-in page first, before the user logs in. 
 - [x] After the user logs in, they will be directed to the home page, which has a list of articles done by the user.
 - [x] On the home page, user should be able to click on "Add post" button, which will direct user to the add-post page.
