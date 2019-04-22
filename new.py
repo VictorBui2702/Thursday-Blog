@@ -43,6 +43,10 @@ class User(UserMixin, db.Model):
   username = db.Column(db.String(64), index=True, unique=True)
   email = db.Column(db.String(120), index=True, unique=True)
   password_hash = db.Column(db.String(128), nullable=False)
+  
+  def __init__(self, username, email):
+        self.username = username
+        self.email = email
 
   def set_password(self, password):
       self.password_hash = generate_password_hash(password)
@@ -125,8 +129,8 @@ def signup():
             flash('Please enter all the required fields')
         else:
             signup = User(request.form['username'],
-                request.form['email'],
-                        request.form['password'])
+                            request.form['email'])
+            signup.set_password(request.form['password'])
             db.session.add(signup)
             db.session.commit()
             flash('Post successfully added')
