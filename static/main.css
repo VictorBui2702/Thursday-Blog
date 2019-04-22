@@ -7,13 +7,22 @@
   color:black;
 }
 body {
-    background: linear-gradient(to right, #ddd6f3, #faaca8);}
+    background: linear-gradient(to right, #ddd6f3, #faaca8);
+}
 
 input {
     border: none;
     border-radius: 5px;
     background: rgba(255, 255, 255, 0.219);
 
+}
+
+.nav {
+    background: linear-gradient(to left, #ddd6f3c0, #faaca8bd);
+    width: 100%;
+    padding-top: 20px;
+    opacity: 70%;
+    padding-left: 10px !important;
 }
 
 .card{
@@ -62,6 +71,8 @@ box-sizing: border-box;
 } */
 .header_bar_social {
     margin-right: 15px;
+    margin-bottom: 0px;
+
 }
 
 .header_bar_social ul {
@@ -76,7 +87,6 @@ box-sizing: border-box;
     align-items: center;
     width: 24px;
     height: 24px;
-    margin: 0 10px;
     font-size: 14px;
 }
 

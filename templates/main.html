@@ -58,7 +58,7 @@
 
   <body>
     
-    <nav class="container nav align-self-center justify-content-between mt-2">
+    <nav class="fixed-top nav align-self-center justify-content-between">
       <div class="header_bar_text">
         <li class="nav-item text-dark font-weight-bold">Keep moving forward. Work hard Play harder</li>
       </div>
@@ -85,17 +85,17 @@
               placeholder="Search"
               aria-label="Search"
             />
-            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">
+            <button class="btn btn-outline-dark  my-sm-0" type="submit">
               Search
             </button>
             <a
               href="{{ url_for('logout') }}"
-              class="btn btn-outline-dark my-2 my-sm-0"
+              class="btn btn-outline-dark  my-sm-0"
               >Logout</a
             >
             <a
               href="{{ url_for('login') }}"
-              class="btn btn-outline-dark my-2 my-sm-0"
+              class="btn btn-outline-dark  my-sm-0"
               >Login</a
             >
           </form>
@@ -103,7 +103,7 @@
       </div>
     </nav>
 
-    <div class="row mb-2">
+    <div class="row mb-2" style="margin-top:70px">
       <div class="col-12">
         <div class="site-branding flex flex-column align-items-center">
           <h1 class="site-title text-center">
