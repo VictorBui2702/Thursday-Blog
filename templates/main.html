@@ -85,12 +85,13 @@
               placeholder="Search"
               aria-label="Search"
             />
-            <button class="btn btn-outline-dark  my-sm-0" type="submit">
+            <!-- <button class="btn btn-outline-dark  my-sm-0" type="submit">
               Search
-            </button>
+            </button> -->
             <a
               href="{{ url_for('logout') }}"
               class="btn btn-outline-dark  my-sm-0"
+              style="margin-right:5px"
               >Logout</a
             >
             <a
@@ -161,10 +162,7 @@
                 <p id="quote" class="card-text font-italic"></p>
                 <form class="form-inline justify-content-end">
                   <a href="{{ url_for('create') }}" class="btn btn-outline-dark my-2 my-sm-0">Add post</a>
-                </form>
-                                <form class="form-inline justify-content-end">
-                                  <a href="{{ url_for('signup') }}" class="btn btn-outline-dark my-2 my-sm-0">Sign-up</a>
-                                </form>
+                
               </div>
             </div>
           </div>
@@ -215,7 +213,7 @@
               </div>
               <div>
                 <h5 class="text-right mr-3 mt-3">Comment</h5>
-                <textarea class="comment" style="width:100%; height:150px;"></textarea>
+                <textarea class="comment" style="width:100%; height:150px;" placeholder="Your thoughts about this..."></textarea>
               </div>
             </div>
           </div>
